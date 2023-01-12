@@ -1,0 +1,18 @@
+.app{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.set-timer, .show-timer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.set-timer{
+    /* width: 20%; */
+}
+.show-timer{   
+    /* width: 80%; */
+}

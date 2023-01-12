@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import SetTimer from "./Component/SetTimer";
-import ShowTimer from "./Component/ShowTimer"
+import ShowTimer from "./Component/ShowTimer";
+import './App.css'
 
 const App= ()=>{
+  // lift timer state up
+  const [timerFormatInput, setTimerFormatInput] = useState('')
+  const [timerInput, setTimerInput] = useState('')
+  
   return (
-      //components: timer, set timer 
-        <div>
-          <ShowTimer/>
-          <SetTimer/>
+        <div className="app">
+          <ShowTimer 
+            timer={timerInput} 
+            timerFormat={timerFormatInput}/>
+            
+          <SetTimer 
+            setTimerFormatInput={setTimerFormatInput} 
+            setTimerInput={setTimerInput}/>
         </div>
   );
 }

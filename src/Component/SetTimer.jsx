@@ -1,15 +1,34 @@
 import React, { useState } from "react";
 
 
-function SetTimer(){
-    const [timer] = useState('')
-    const submit = () =>{
+function SetTimer({setTimerFormatInput, setTimerInput}){
+    const [timer, setTimer] = useState('')
+    const [timerFormat, setTimerFormat] = useState('days')
 
+    const submit = (e) =>{
+        //lift up timer value to App.js
+        setTimerInput(timer)
+        setTimerFormatInput(timerFormat)
     }
 
+    // takes in timer input value
     return(
-        <div>
-            <input type="text" value={timer}></input>
+        <div className="set-timer">
+            <input 
+                onChange={(e)=>{setTimer(e.target.value)}}
+                type="text"
+                value={timer}>
+            </input>
+            {/* <label for='#time-format'></label> */}
+            <select onChange={(e)=>{setTimerFormat(e.target.value)}}
+                name="time-format" 
+                id="time-format" 
+                value={timerFormat}>
+                <option value="days" selected>Days</option>
+                <option value="hours">Hours</option>
+                <option value="minutes">Minutes</option>
+                <option value="seconds">Seconds</option>
+            </select>
             <button onClick={submit}>Set Timer</button>
         </div>
     )
