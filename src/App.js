@@ -11,7 +11,8 @@ const App= ()=>{
   return (
         <div className="app">
           <ShowTimer 
-            timer={timerInput} 
+            // timer={timerInput} 
+            timer={10}
             timerFormat={timerFormatInput}/>
             
           <SetTimer 

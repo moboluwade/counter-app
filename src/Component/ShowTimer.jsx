@@ -1,25 +1,58 @@
-import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 
-const ShowTimer= ()=>{
+const ShowTimer= ({timer, timerFormat})=>{
+    const [remainingDays, setRemainingDays] = useState('00')
+    const [remainingHours, setRemainingHours] = useState('00')
+    const [remainingMinutes, setRemainingMinutes] = useState('00')
+    const [remainingSeconds, setRemainingSeconds] = useState('00')
+    let timeInSeconds
 
+    switch(timerFormat){
+        case 'days':
+            timeInSeconds = parseInt(timer)*24*60*60
+            break;
+        case 'hours':
+            timeInSeconds = parseInt(timer)*60*60
+            break;
+        case 'minutes':
+            timeInSeconds = parseInt(timer)*60
+            break;
+        case 'seconds':
+            timeInSeconds = parseInt(timer)
+            break;
+        default:
+            console.log(timeInSeconds)
+    }
+    
     useEffect(()=>{
-        //to convert days to seconds 1 day is 1*24*60*60
-        //run timer format through a c0nditional(if)
-        //based on conditional query, convert time-input given to it's appropriate value in seconds
-        //get the values for days, hours, minutes and seconds
-        //return values as a timer
-
-    })
-    // based on a time given - timer
-    // accept timer input in days
-    // convert time in days to denominations
-    // store time
-    // display remaining time
-
+        const timerInterval = setInterval(() => {
+            // if(isNaN(timeInSeconds)){
+            //     timeInSeconds = "00";
+            // }
+            setRemainingDays(Math.floor(timeInSeconds/(24*60*60)))
+            setRemainingHours(Math.floor((timeInSeconds%(24*60*60))/(60*60)))
+            setRemainingMinutes(Math.floor((timeInSeconds%(60*60))/(60)))
+            setRemainingSeconds(Math.floor(timeInSeconds%60))
+            // updateTime();
+            if(timeInSeconds!== 0){
+                timeInSeconds--;
+                //stops countdown
+            }
+            
+            
+        }, 1000);
+        return () => clearInterval(timerInterval)
+    },[timeInSeconds])
+    
+    
     return(
-        <div className='show-timer'></div>
-        // <div>{days}:{hours}:{minutes}:{seconds}</div>
+        <div className='show-timer'>
+            {/* {isNaN(timeInSeconds) || 0 ? 
+            <div>00:00:00</div> :  */}
+            <div>{remainingDays}:{remainingHours}:{remainingMinutes}:{remainingSeconds}</div>
+            {/* } */}
+        </div>
     )
 }
 

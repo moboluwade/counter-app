@@ -22,9 +22,10 @@ function SetTimer({setTimerFormatInput, setTimerInput}){
             {/* <label for='#time-format'></label> */}
             <select onChange={(e)=>{setTimerFormat(e.target.value)}}
                 name="time-format" 
-                id="time-format" 
+                id="time-format"
+                defaultValue='days'
                 value={timerFormat}>
-                <option value="days" selected>Days</option>
+                <option value="days">Days</option>
                 <option value="hours">Hours</option>
                 <option value="minutes">Minutes</option>
                 <option value="seconds">Seconds</option>
