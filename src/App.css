@@ -7,8 +7,21 @@
 }
 .set-timer, .show-timer{
     display: flex;
-    flex-direction: row;
+    flex-flow: column nowrap;
     justify-content: center;
+}
+.text-field{
+    height: 30px;
+    width: 150px;
+    border: 2px solid #00337C;
+}
+/* going for a neon blue feel. */
+
+.stop-button, .start-button{
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    text-align: center;
 }
 .set-timer{
     /* width: 20%; */

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function SetTimer({setTimerFormatInput, setTimerInput}){
+function SetTimer({setTimerFormatInput, setTimerInput, setIsTimerSet}){
     const [timer, setTimer] = useState('')
     const [timerFormat, setTimerFormat] = useState('days')
 
@@ -9,6 +9,7 @@ function SetTimer({setTimerFormatInput, setTimerInput}){
         //lift up timer value to App.js
         setTimerInput(timer)
         setTimerFormatInput(timerFormat)
+        setIsTimerSet(true)
     }
 
     // takes in timer input value

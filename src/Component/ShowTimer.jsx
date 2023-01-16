@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-const ShowTimer= ({timer, timerFormat})=>{
+const ShowTimer= ({timer, timerFormat, setIsTimerSet})=>{
     const [remainingDays, setRemainingDays] = useState('00')
     const [remainingHours, setRemainingHours] = useState('00')
     const [remainingMinutes, setRemainingMinutes] = useState('00')
     const [remainingSeconds, setRemainingSeconds] = useState('00')
     let timeInSeconds
 
+    const resetTimer = ()=>{
+        setIsTimerSet(false)
+    }
     switch(timerFormat){
         case 'days':
             timeInSeconds = parseInt(timer)*24*60*60
@@ -52,6 +55,11 @@ const ShowTimer= ({timer, timerFormat})=>{
             <div>00:00:00</div> :  */}
             <div>{remainingDays}:{remainingHours}:{remainingMinutes}:{remainingSeconds}</div>
             {/* } */}
+        <div className="button-group">
+            <button className='reset' onClick={resetTimer}>Reset-button</button>
+            {timeInSeconds===0 && <button className='stop-button'>Stop</button>}
+
+        </div>
         </div>
     )
 }

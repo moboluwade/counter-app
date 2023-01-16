@@ -7,17 +7,25 @@ const App= ()=>{
   // lift timer state up
   const [timerFormatInput, setTimerFormatInput] = useState('')
   const [timerInput, setTimerInput] = useState('')
+  //control rendering
+  const [isTimerSet, setIsTimerSet] = useState(false)
+
   
   return (
         <div className="app">
+          {isTimerSet ? 
           <ShowTimer 
-            // timer={timerInput} 
-            timer={10}
-            timerFormat={timerFormatInput}/>
-            
+          timer={timerInput} 
+          timerFormat={timerFormatInput}
+          setIsTimerSet={setIsTimerSet}/>  
+          
+          :
+
           <SetTimer 
-            setTimerFormatInput={setTimerFormatInput} 
-            setTimerInput={setTimerInput}/>
+          setTimerFormatInput={setTimerFormatInput} 
+          setTimerInput={setTimerInput}
+          setIsTimerSet={setIsTimerSet}/>
+        }
         </div>
   );
 }
