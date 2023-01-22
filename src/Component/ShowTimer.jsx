@@ -53,12 +53,11 @@ const ShowTimer= ({timer, timerFormat, setIsTimerSet})=>{
         <div className='show-timer'>
             {/* {isNaN(timeInSeconds) || 0 ? 
             <div>00:00:00</div> :  */}
-            <div>{remainingDays}:{remainingHours}:{remainingMinutes}:{remainingSeconds}</div>
+            <h1 className="countdown">{remainingDays}:{remainingHours}:{remainingMinutes}:{remainingSeconds}</h1>
             {/* } */}
         <div className="button-group">
-            <button className='reset' onClick={resetTimer}>Reset-button</button>
-            {timeInSeconds===0 && <button className='stop-button'>Stop</button>}
-
+            <button className='reset-button' onClick={resetTimer}>Reset</button>
+            {/* {timeInSeconds===0 && <button className='stop-button'>Stop</button>} */}
         </div>
         </div>
     )

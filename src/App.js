@@ -12,7 +12,11 @@ const App= ()=>{
 
   
   return (
-        <div className="app">
+    <div className="app">
+        <h1 className="timer-title">
+            Countdown Timer
+        </h1>
+        <div className="timer-body">
           {isTimerSet ? 
           <ShowTimer 
           timer={timerInput} 
@@ -27,6 +31,7 @@ const App= ()=>{
           setIsTimerSet={setIsTimerSet}/>
         }
         </div>
+    </div>
   );
 }
 
