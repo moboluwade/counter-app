@@ -11,6 +11,7 @@ function SetTimer({setTimerFormatInput, setTimerInput, setIsTimerSet}){
         setTimerInput(timer)
         setTimerFormatInput(timerFormat)
         setIsTimerSet(true)
+        bounceNegative()
     }
 
     const bounceNegative = (e) => {
