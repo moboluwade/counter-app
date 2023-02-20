@@ -1,23 +1,29 @@
+
+
+
 body{
     margin: 0;
     padding: 0;
 }
 .app{
-    display: flex;
-    flex-flow: column nowrap;
-    background-color: #8DCBE6;
-    /* justify-content: center; */
     height: 100vh;
     width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background-color: #8DCBE6; */ 
+    /* neon blue goes better with a light background but not a dark one */
+    /* but for improved accessibility allow light mode/ dark mode option */
+    background-color: #fff;
 }
 .timer-title{
     margin: auto;
-    text-align: center;
     margin-top: 20px;
     margin-bottom: 200px;
+    text-align: center;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #00337C;
+    font-size: 3rem;
+    color: #043d8d;
 }
 .set-timer, .show-timer{
     display: flex;
@@ -34,14 +40,13 @@ body{
 .text-field{
     width: 300px;
     height: 50px;
-    border: 0px;
-    background-color: #8DCBE6;
     border: 0px solid #00337C;
     border-bottom: 2px solid #00337C;
     font-size: 2rem;
-    text-align: center;
     margin-right: 10px;
+    text-align: center;
     /* padding: 2px 0px 2px 2px; */
+    background-color: #8DCBE6;
 }
 .text-field:focus{
     outline: none;
@@ -98,3 +103,4 @@ body{
     font-size: 6rem;
     margin: 0;
 }
+/* responsive css for mobile view */
