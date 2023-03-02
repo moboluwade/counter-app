@@ -2,15 +2,16 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const ShowTimer= ({timer, timerFormat, setIsTimerSet})=>{
+    let timeInSeconds;
     const [remainingDays, setRemainingDays] = useState('00')
     const [remainingHours, setRemainingHours] = useState('00')
     const [remainingMinutes, setRemainingMinutes] = useState('00')
     const [remainingSeconds, setRemainingSeconds] = useState('00')
-    let timeInSeconds
 
     const resetTimer = ()=>{
         setIsTimerSet(false)
     }
+
     switch(timerFormat){
         case 'days':
             timeInSeconds = parseInt(timer)*24*60*60
@@ -30,20 +31,24 @@ const ShowTimer= ({timer, timerFormat, setIsTimerSet})=>{
     
     useEffect(()=>{
         const timerInterval = setInterval(() => {
-            // if(isNaN(timeInSeconds)){
-            //     timeInSeconds = "00";
-            // }
-            setRemainingDays(Math.floor(timeInSeconds/(24*60*60)))
-            setRemainingHours(Math.floor((timeInSeconds%(24*60*60))/(60*60)))
-            setRemainingMinutes(Math.floor((timeInSeconds%(60*60))/(60)))
-            setRemainingSeconds(Math.floor(timeInSeconds%60))
-            // updateTime();
+            //calculates and sets the countdown digits
+            // see if a var stores data dynamically - it does
+            let dayState= Math.floor(timeInSeconds/(24*60*60));
+            let hourState= Math.floor((timeInSeconds%(24*60*60))/(60*60));
+            let minuteState= Math.floor((timeInSeconds%(60*60))/(60));
+            let secondState = Math.floor(timeInSeconds%60);
+
+            //padStart allows every digit to have at least 2-digits
+            //but only works on strings
+            setRemainingDays(dayState.toString().padStart(2, '0'))
+            setRemainingHours(hourState.toString().padStart(2, '0'))
+            setRemainingMinutes(minuteState.toString().padStart(2, '0'))
+            setRemainingSeconds(secondState.toString().padStart(2, '0'))
+
+            //stops countdown
             if(timeInSeconds!== 0){
                 timeInSeconds--;
-                //stops countdown
             }
-            
-            
         }, 1000);
         return () => clearInterval(timerInterval)
     },[timeInSeconds])
@@ -51,14 +56,19 @@ const ShowTimer= ({timer, timerFormat, setIsTimerSet})=>{
     
     return(
         <div className='show-timer'>
-            {/* {isNaN(timeInSeconds) || 0 ? 
-            <div>00:00:00</div> :  */}
-            <h1 className="countdown">{remainingDays}:{remainingHours}:{remainingMinutes}:{remainingSeconds}</h1>
-            {/* } */}
-        <div className="button-group">
-            <button className='reset-button' onClick={resetTimer}>Reset</button>
-            {/* {timeInSeconds===0 && <button className='stop-button'>Stop</button>} */}
-        </div>
+            <h1 className="countdown">
+                <p>{remainingDays}</p>
+                <p>:</p>
+                <p>{remainingHours}</p>
+                <p>:</p>
+                <p>{remainingMinutes}</p>
+                <p>:</p>
+                <p>{remainingSeconds}</p>
+            </h1>
+            <div className="button-group">
+                <button className='reset-button' onClick={resetTimer}>Reset</button>
+                {/* {timeInSeconds===0 && <button className='stop-button'>Stop</button>} */}
+            </div>
         </div>
     )
 }

@@ -46,7 +46,7 @@ body{
     margin-right: 10px;
     text-align: center;
     /* padding: 2px 0px 2px 2px; */
-    background-color: #8DCBE6;
+    /* background-color: #8DCBE6; */
 }
 .text-field:focus{
     outline: none;
@@ -57,7 +57,7 @@ body{
 /* going for a neon blue feel. */
 .timer-format{
     margin: auto;
-    background-color: #8DCBE6;
+    /* background-color: #8DCBE6; */
     border: 0px solid #00337C;
     /* border-right: 2px solid #00337C; */
     border-left: 2px solid #00337C;
@@ -99,8 +99,17 @@ body{
     /* width: 80%; */
 }
 .countdown{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
     color: #00337C;
     font-size: 6rem;
     margin: 0;
 }
 /* responsive css for mobile view */
+@media screen and (max-width: 768px){
+    .timer-title{
+        font-size: 1.8rem;
+    }
+}
