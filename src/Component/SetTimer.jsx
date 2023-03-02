@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-
+// this component accepts usuer input for time and time format
 function SetTimer({setTimerFormatInput, setTimerInput, setIsTimerSet}){
     const [timer, setTimer] = useState('')
     const [timerFormat, setTimerFormat] = useState('days')
