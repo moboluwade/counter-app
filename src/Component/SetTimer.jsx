@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import InputFields from "./InputFields";
 
 // this component accepts usuer input for time and time format
 function SetTimer({setTimerFormatInput, setTimerInput, setIsTimerSet}){
@@ -26,16 +25,16 @@ function SetTimer({setTimerFormatInput, setTimerInput, setIsTimerSet}){
         <div>
             <div className="set-timer">
                 <div className="input-fields">
-                    {/* <input 
+                    <input 
                         required
                         onChange={(e)=>{setTimer(e.target.value)}}
                         className="text-field"
                         type="text"
                         placeholder= 'time in numbers'
                         value={timer}>
-                    </input> */}
+                    </input>
                     {/* <label for='#time-format'></label> */}
-                    {/* <select onChange={(e)=>{setTimerFormat(e.target.value)}} 
+                    <select onChange={(e)=>{setTimerFormat(e.target.value)}} 
                         className='timer-format'
                         name="time-format" 
                         id="time-format"
@@ -45,7 +44,7 @@ function SetTimer({setTimerFormatInput, setTimerInput, setIsTimerSet}){
                         <option value="hours">Hours</option>
                         <option value="minutes">Minutes</option>
                         <option value="seconds">Seconds</option>
-                    </select> */}
+                    </select>
                 </div>
                 {isButtonActivated && <button className='set-timer-button' onClick={submit}>Set Timer</button>}
             </div>
