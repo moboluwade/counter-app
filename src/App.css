@@ -22,8 +22,8 @@ body{
     margin-bottom: 200px;
     text-align: center;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #00337C;
-    font-size: 3.3rem;
+    font-size: 3rem;
+    color: #043d8d;
 }
 .set-timer, .show-timer{
     display: flex;
@@ -110,7 +110,6 @@ body{
 /* responsive css for mobile view */
 @media screen and (max-width: 768px){
     .timer-title{
-        color: #00337C;
-        font-size: 3rem;
+        font-size: 1.8rem;
     }
 }
