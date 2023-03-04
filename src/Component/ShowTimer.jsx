@@ -55,7 +55,8 @@ const ShowTimer= ({timer, timerFormat, setIsTimerSet})=>{
     
     
     return(
-        <div className='show-timer'>
+        <div className='show-time
+        r'>
             <h1 className="countdown">
                 <p>{remainingDays}</p>
                 <p>:</p>
